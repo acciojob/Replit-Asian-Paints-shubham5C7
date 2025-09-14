@@ -1,23 +1,24 @@
-// Change color button
-document.getElementById("change_button").addEventListener("click", function () {
-  const inputId = document.getElementById("block_id").value;
-  const color = document.getElementById("colour_id").value;
-
-  // Reset all blocks first
-  const cells = document.querySelectorAll(".grid-item");
-  cells.forEach(cell => cell.style.backgroundColor = "transparent");
-
-  // Apply color to chosen block
-  const chosenCell = document.getElementById(inputId);
-  if (chosenCell) {
-    chosenCell.style.backgroundColor = color;
-  } else {
-    alert("Invalid block id! Please enter 1–9.");
-  }
-});
-
-// Reset button
-document.getElementById("Reset").addEventListener("click", function () {
-  const cells = document.querySelectorAll(".grid-item");
-  cells.forEach(cell => cell.style.backgroundColor = "transparent");
-});
+//your JS code here. If required.
+function changeColor() {
+	   const inputId = document.getElementById("block_id").value;
+     const color = document.getElementById("colour_id").value;
+   
+     const cells = document.querySelectorAll(".grid-item");
+	for(let cell of cells){
+		 cell.style.backgroundColor = "transparent";
+	}
+	const choosenCell =document.getElementById(inputId);
+	if(choosenCell){
+		choosenCell.style.backgroundColor = color;
+	}else{
+         alert("Invalid cell id! Please enter a number between 1 and 9.");
+    }
+}
+function resetGrid() {
+	const cells = document.querySelectorAll(".grid-item");
+	for (let cell of cells) {
+		cell.style.backgroundColor = "transparent";
+	}
+}
+document.getElementById("change_button").addEventListener("click", changeColor);
+document.getElementById("Reset").addEventListener("click", resetGrid);
